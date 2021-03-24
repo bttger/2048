@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: 2048-game-service
+  namespace: 2048-game
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: 2048-game-pod
