@@ -1,0 +1,23 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: game-ingress
+  namespace: 2048-game
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  rules:
+    - host: cluster.tnnl.sh
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: game-service
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - cluster.tnnl.sh
+      secretName: game-tls-cert

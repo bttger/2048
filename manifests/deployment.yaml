@@ -1,19 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: 2048-game-deployment
+  name: game-deployment
+  namespace: 2048-game
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 2048-game-pod
+      app: game-pod
   template:
     metadata:
       labels:
-        app: 2048-game-pod
+        app: game-pod
     spec:
       containers:
-        - name: 2048-game-container
+        - name: game-container
           image: bttger/2048-game:latest
           ports:
             - containerPort: 80

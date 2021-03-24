@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: 2048-game-service
+  name: game-service
   namespace: 2048-game
 spec:
   ports:
@@ -9,4 +9,4 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: 2048-game-pod
+    app: game-pod
